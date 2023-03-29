@@ -1,0 +1,146 @@
+@import "../settings/index.scss";
+
+$score-circle-size: px-to-rem(70px);
+$author-karma-icon-size: px-to-rem(17px);
+
+.cmp-story {
+  &__container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: px-to-rem(1000px);
+    width: 100%;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-item {
+    background-color: $color-body-background--dark;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--spacing-m);
+    padding: var(--spacing-m);
+    position: relative;
+    width: 100%;
+
+    @include respond-to(medium-device) {
+      flex-direction: row;
+    }
+  }
+
+  &__image {
+    background: $color-body-background;
+    max-height: px-to-rem(250px);
+    min-height: px-to-rem(80px);
+    object-fit: cover;
+    width: 100%;
+    color: $color-body-text;
+    font-size: 0;
+
+    &::after {
+      content: attr(alt);
+      padding: var(--spacing-m) $score-circle-size var(--spacing-m) var(--spacing-m);
+      display: block;
+      font-size: var(--font-size--m);
+    }
+
+    @include respond-to(medium-device) {
+      max-height: unset;
+      min-height: px-to-rem(250px);
+      width: 50%;
+
+      &::after {
+        padding: $score-circle-size;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding-block: var(--spacing-m);
+    width: 100%;
+
+    @include respond-to(medium-device) {
+      padding: 0 0 0 var(--spacing-m);
+      ;
+      width: 50%;
+    }
+  }
+
+  &__score {
+    background: $color-black;
+    border-radius: $score-circle-size;
+    color: $color-body-text--darkmode;
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size--m);
+    font-weight: 900;
+    height: $score-circle-size;
+    justify-content: center;
+    position: absolute;
+    right: var(--spacing-m);
+    text-align: center;
+    top: var(--spacing-m);
+    vertical-align: middle;
+    width: $score-circle-size;
+    z-index: 1;
+    box-shadow: px-to-rem(-8px) px-to-rem(8px) 0px $color-primary;
+
+    span {
+      font-size: var(--font-size--xxs);
+      margin-bottom: px-to-rem(3px);
+    }
+  }
+
+  &__time {
+    color: $color-body-text--light;
+    padding-bottom: var(--spacing-m);
+  }
+
+  &__title {
+    color: $color-body-text;
+    display: block;
+    font-size: var(--font-size--l);
+    line-height: 1.2;
+    padding-bottom: var(--spacing-m);
+    text-decoration: none;
+    width: 100%;
+
+    @include respond-to(medium-device) {
+      width: calc(100% - $score-circle-size);
+    }
+  }
+
+  &__author-info {
+    border-top: $color-grey 1px solid;
+    color: $color-body-text--light;
+    display: flex;
+    padding-top: var(--spacing-l);
+  }
+
+  &__author-name {
+    display: inline-block;
+  }
+
+  &__author-karma {
+    display: inline-block;
+    margin: 0 0 0 var(--spacing-m);
+    position: relative;
+
+    &::before {
+      background: url(../../resource/icon-heart.svg);
+      content: "";
+      display: block;
+      height: $author-karma-icon-size;
+      left: calc(-1 * var(--spacing-m));
+      position: absolute;
+      width: $author-karma-icon-size;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.cmp-banner {
+    color: $color-black;
+    font-size: px-to-rem(100px);
+    line-height: 0.8;
+    padding: var(--spacing-m);
+
+    h1 {
+        font-weight: bold;
+    }
+
+    span {
+        display: block;
+        font-size: px-to-rem(48px);
+        font-weight: 100;
+        border-top: solid 2px $color-black;
+        margin-top: var(--spacing-s);
+        padding-top: var(--spacing-s);
+    }
+
+    @include respond-to(medium-device) {
+        padding: px-to-rem(50px);
+    }
+}
