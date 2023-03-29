@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/aria-role */
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 const BASE_URL = "https://hacker-news.firebaseio.com/v0";
 const TOP_STORIES_URL = `${BASE_URL}/topstories.json`;
@@ -20,7 +20,7 @@ const App = () => {
     return `https://picsum.photos/id/${id}/800/600`;
   };
 
-  const fetchRandomStories = async () => {
+  const fetchRandomStories = useCallback(async () => {
     const topStoryIds = await fetchData(TOP_STORIES_URL);
     const randomIds = topStoryIds.sort(() => 0.5 - Math.random()).slice(0, 10);
 
@@ -32,15 +32,13 @@ const App = () => {
       })
     );
 
-    // console.log("storyData:", storyData);
-
     storyData.sort((a, b) => a.score - b.score);
     setStories(storyData);
-  };
+  }, []);
 
   useEffect(() => {
     fetchRandomStories();
-  }, []);
+  }, [fetchRandomStories]);
 
   return (
     <div className="cmp-story__container" role="region">
