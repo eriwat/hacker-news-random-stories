@@ -1,0 +1,29 @@
+// Spinner
+
+$spinner-size: px-to-rem(100px);
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: $spinner-size;
+  margin-top: 10vh;
+}
+
+.spinner {
+  border: px-to-rem(12px) solid $color-body-background--dark;
+  border-top: px-to-rem(12px) solid $color-primary;
+  border-radius: 50%;
+  width: $spinner-size;
+  height: $spinner-size;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

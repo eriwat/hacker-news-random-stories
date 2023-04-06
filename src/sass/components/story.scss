@@ -1,3 +1,5 @@
+// story.scss
+
 @import "../settings/index.scss";
 
 $score-circle-size: px-to-rem(70px);
@@ -20,12 +22,33 @@ $author-karma-icon-size: px-to-rem(17px);
 
   &__list-item {
     background-color: $color-body-background--dark;
+    margin-bottom: var(--spacing-m);
+    width: 100%;
+    transition: box-shadow 0.1s;
+    position: relative;
+
+    &:hover {
+      box-shadow: px-to-rem(5px) px-to-rem(5px) px-to-rem(8px) $color-light-grey;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+
+    &:focus-visible {
+      outline-color: transparent;
+    }
+  }
+
+  &__list-item-content {
     display: flex;
     flex-direction: column;
-    margin-bottom: var(--spacing-m);
     padding: var(--spacing-m);
-    position: relative;
-    width: 100%;
+
+    a:focus & {
+      border: solid px-to-rem(5px) $color-secondary;
+      padding: calc(var(--spacing-m) - 5px );
+    }
 
     @include respond-to(medium-device) {
       flex-direction: row;
@@ -40,17 +63,19 @@ $author-karma-icon-size: px-to-rem(17px);
     width: 100%;
     color: $color-body-text;
     font-size: 0;
+    opacity: 0;
 
     &::after {
       content: attr(alt);
       padding: var(--spacing-m) $score-circle-size var(--spacing-m) var(--spacing-m);
       display: block;
       font-size: var(--font-size--m);
+      opacity: 1;
     }
 
     @include respond-to(medium-device) {
       max-height: unset;
-      min-height: px-to-rem(250px);
+      min-height: px-to-rem(360px);
       width: 50%;
 
       &::after {
@@ -68,7 +93,6 @@ $author-karma-icon-size: px-to-rem(17px);
 
     @include respond-to(medium-device) {
       padding: 0 0 0 var(--spacing-m);
-      ;
       width: 50%;
     }
   }

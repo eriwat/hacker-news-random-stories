@@ -1,43 +1,25 @@
+// mixins.scss
+
 $breakpoints: (
   "small-device": (
     min-width: 576px,
   ),
-  // Small devices (landscape phones, 576px and up)
   "medium-device":
     (
       min-width: 768px,
     ),
-  // Medium devices (tablets, 768px and up)
   "large-device":
-    (
-      min-width: 992px,
-    ),
-  // Large devices (desktops, 992px and up)
-  "extra-large-device":
     (
       min-width: 1200px,
     ),
-  // Extra large devices (large desktops, 1200px and up)
-  "xxl-large-device":
-    (
-      min-width: 2000px,
-    ),
-  // Extreme large devices (high DP large desktops, 2000px and up)
   "min-mobile":
     (
       max-width: 575px,
     ),
-  // Styling for mobile only
   "max-mobile":
     (
       max-width: 767px,
     ),
-  // Styling for mobile only
-  "max-device":
-    (
-      max-width: 991px,
-    )
-    // Styling for mobile only,,,
 );
 
 @mixin respond-to($name) {
