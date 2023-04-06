@@ -7,3 +7,6 @@
 // Components
 @import "components/banner.scss";
 @import "components/story.scss";
+
+// Settings which needs higher specificity
+@import "settings/helpers.scss";
